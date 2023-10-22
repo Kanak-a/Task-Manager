@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Task Master</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="main">
+    <div class="container mt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Added</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{ task.content}}</td>
+                    <td>{{task.date_created.strftime('%Y-%m-%d %H:%M')}} </td>
+                    <td>
+                        <div class="updateBtn">
+                            <a href="/delete/{{ task.id }}" class="btn btn-outline-danger btn-sm" title="Delete">
+                                <i class="fa fa-trash"></i></a>
+                            <a href="/update/{{ task.id }}" class="btn btn-outline-warning btn-sm" title="Update">
+                                <i class="fa fa-edit"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>        
+        </table>
+
+        <form action="/" method="POST">
+            <div class="input-group mb-3">
+                <input type="text" name="content" class="form-control" placeholder="Add a new task" required>
+            </div>
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-success">Add Task</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
