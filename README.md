@@ -24,6 +24,9 @@ The objectives of the Task Master system include:
 🟡 Task Tracking: Enable users to track task progress, set due dates, and receive reminders. 
 
 
+#NOTE - The kanban part of the app is still under progress.
+
+
 
 
 In conclusion, Task Master is a web application designed to help users efficiently manage their tasks and boost productivity. 
